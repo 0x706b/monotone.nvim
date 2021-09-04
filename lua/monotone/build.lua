@@ -5,12 +5,14 @@ local terms = {
 
 -- Format each entry in a table, and concatenate them into a single string
 local function concat_format(t)
-  return table.concat(vim.tbl_map(function(x) return string.format(unpack(x)) end, t), "\n")
+  return table.concat(vim.tbl_map(function(x)
+    return string.format(x[1], x[2])
+  end, t), "\n")
 end
 
 -- Get the directory where the melange plugin is located
 local function get_dir()
-  return debug.getinfo(1).source:match("@?(.*/)"):gsub("monotone.nvim/lua/lush_theme/$", "")
+  return debug.getinfo(1).source:match("@?(.*/)"):gsub("lua/monotone/$", "")
 end
 
 -- Write the contents of a buffer to a file
@@ -25,28 +27,28 @@ function terms.kitty.build(colors)
   return concat_format {
     {"background %s", colors.bg};
     {"foreground %s", colors.fg};
-    {"cursor     %s", colors.err};
-    {"url_color  %s", colors.info};
+    {"cursor     %s", colors.b.red};
+    {"url_color  %s", colors.b.blue};
 
     {"selection_background    %s", colors.fg};
     {"selection_foreground    %s", colors.bg};
 
     -- normal
     {"color0  %s",  colors.bg};
-    {"color1  %s",  colors.red};
-    {"color2  %s",  colors.green};
-    {"color3  %s",  colors.yellow};
-    {"color4  %s",  colors.blue};
-    {"color5  %s",  colors.magenta};
+    {"color1  %s",  colors.n.red};
+    {"color2  %s",  colors.n.green};
+    {"color3  %s",  colors.n.yellow};
+    {"color4  %s",  colors.n.blue};
+    {"color5  %s",  colors.n.magenta};
     {"color6  %s",  colors.fg2};
     {"color7  %s",  colors.fg2};
     -- bright
     {"color8  %s", colors.fg0};
-    {"color9  %s", colors.err};
+    {"color9  %s", colors.b.red};
     {"color10 %s", colors.fg2};
-    {"color11 %s", colors.warn};
-    {"color12 %s", colors.blue};
-    {"color13 %s", colors.magenta};
+    {"color11 %s", colors.b.yellow};
+    {"color12 %s", colors.n.blue};
+    {"color13 %s", colors.n.magenta};
     {"color14 %s", colors.white};
     {"color15 %s", colors.white};
   }

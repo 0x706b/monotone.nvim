@@ -14,7 +14,7 @@ let g:colors_name="monotone"
 "
 " The performance impact of this call can be measured in the hundreds of
 " *nanoseconds* and such could be considered "production safe".
-lua package.loaded['lush_theme.monotone'] = nil
+lua package.loaded['monotone'] = nil
 
 " include our theme file and pass it to lush to apply
-lua require('lush')(require('lush_theme.monotone'))
+lua require('lush')(require('monotone'))
