@@ -9,7 +9,7 @@ local colors = {
   fg0   = hsl(5, 3, 36),
   fg1   = hsl(5, 3, 46),
   fg2   = hsl(5, 3, 60),
-  fg    = hsl(5, 3, 82),
+  fg    = hsl(5, 3, 73.8),
   white = hsl(5, 3, 82),
 
   b = {
@@ -169,6 +169,8 @@ local theme = lush(function ()
     GitSignsAdd { fg = colors.git.add },
     GitSignsDelete { fg = colors.git.delete },
     GitSignsChange { fg = colors.git.change },
+    -- IndentBlankline
+    IndentBlanklineContextChar { fg = colors.bg2.li(20) }
   }
 end)
 
