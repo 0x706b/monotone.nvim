@@ -153,6 +153,8 @@ local theme = lush(function ()
     tsxEqual { Delimiter },
     typescriptDocNotation { fg = colors.fg1, gui = 'bold,italic' },
     typescriptDocTags { typescriptDocNotation },
+    typescriptObjectColon { Delimiter },
+    typescriptObjectSpread { Delimiter },
     -- jsx
     jsxTagName { Special },
     jsxComponentName { Type },
