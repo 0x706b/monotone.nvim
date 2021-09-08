@@ -23,13 +23,13 @@ local colors = {
     green   = hsl(115, 20, 62),
     red     = hsl(0, 60, 62),
     blue    = hsl(200, 30, 62),
-    magenta = hsl(270, 30, 68),
+    magenta = hsl(270, 30, 62),
   },
 
   git = {
     change = hsl('#7788aa'),
     add    = hsl('#88aa77'),
-    delete = hsl('#aa7766')
+    delete = hsl('#aa7766').sa(20)
   },
 
   eob = hsl(0, 40, 32),
@@ -45,7 +45,7 @@ local theme = lush(function ()
     Cursor { bg = colors.b.red },
     ColorColumn { bg = colors.bg2 },
     CursorLine { bg = colors.bg0.li(2) },
-    CursorLineNr { fg = colors.fg2, bg = colors.bg0.li(2) },
+    CursorLineNr { fg = colors.n.yellow, bg = colors.bg0.li(2), gui = 'bold' },
     CursorLineNrIt { fg = colors.fg2, bg = colors.bg0, gui = 'italic' },
     Folded { fg = colors.fg, bg = colors.bg1, gui = 'italic' },
     Search { fg = colors.bg, bg = colors.b.yellow, gui = 'bold' },
@@ -153,12 +153,14 @@ local theme = lush(function ()
     tsxEqual { Delimiter },
     typescriptDocNotation { fg = colors.fg1, gui = 'bold,italic' },
     typescriptDocTags { typescriptDocNotation },
+    -- jsx
     jsxTagName { Special },
     jsxComponentName { Type },
     jsxOpenPunct { Delimiter },
     jsxClosePunct { Delimiter },
     jsxCloseString { Delimiter },
-    jsxAttrib { NormalTransparent },
+    jsxAttrib { NormalTransparent, gui = 'italic' },
+    jsxBraces { Delimiter },
     -- lua
     luaParen { Delimiter },
     luaTable { Delimiter },
