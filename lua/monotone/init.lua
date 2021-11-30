@@ -174,7 +174,31 @@ local theme = lush(function ()
     GitSignsDelete { fg = colors.git.delete },
     GitSignsChange { fg = colors.git.change },
     -- IndentBlankline
-    IndentBlanklineContextChar { fg = colors.bg2.li(20) }
+    IndentBlanklineContextChar { fg = colors.bg2.li(20) },
+    -- Neovim
+    NormalFloat { Pmenu },
+    FloatBorder { Pmenu },
+    LspReferenceText { CocHighlightText },
+    LspReferenceRead { CocHighlightText },
+    LspReferenceWrite { CocHighlightText },
+    DiagnosticError { fg = colors.b.red },
+    DiagnosticUnderlineError { sp = colors.b.red, gui = 'undercurl' },
+    DiagnosticWarn { fg = colors.b.yellow },
+    DiagnosticUnderlineWarn { sp = colors.b.yellow, gui = 'undercurl' },
+    DiagnosticHint { fg = colors.b.blue },
+    DiagnosticUnderlineHint { sp = colors.b.blue, gui = 'undercurl' },
+    LspFloatWinNormal { NormalFloat },
+    LspFloatWinBorder { FloatBorder },
+    -- LspSaga
+    LspSagaHoverBorder { LspFloatWinBorder },
+    LspSagaRenameBorder { LspFloatWinBorder },
+    LspSagaDefPreviewBorder { LspFloatWinBorder },
+    LspSagaDiagnosticBorder { LspFloatWinBorder },
+    LspSagaDiagnosticTruncateLine { LspFloatWinBorder },
+    LspSagaSignatureHelpBorder { LspFloatWinBorder },
+    LspLinesDiagBorder { LspFloatWinBorder },
+    -- LspSignature
+    LspSignatureActiveParameter { Search }
   }
 end)
 
